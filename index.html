@@ -1,11 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segurança Digital para Idosos</title>
+    <title>UX e Acessibilidade — Interfaces Inclusivas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-logo" aria-hidden="true">♿</span>
+            <div>
+                <p class="eyebrow">Projeto UX & Acessibilidade</p>
+                <h1>Desenvolvendo interfaces inclusivas</h1>
+            </div>
+        </div>
+
+        <button id="contrast-toggle" aria-pressed="false" aria-label="Ativar modo de alto contraste">
+            Ativar alto contraste
+        </button>
+    </header>
+
+    <nav class="main-nav" aria-label="Menu principal">
+        <ul>
+            <li><a href="#porque-importa">Por que importa</a></li>
+            <li><a href="#principios">Princípios</a></li>
+            <li><a href="#demo">Demonstração</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+            <div>
+                <p class="eyebrow">UX Acessível</p>
+                <h2 id="hero-title">Interfaces claras, úteis e inclusivas</h2>
+                <p>
+                    Este projeto apresenta boas práticas de design de experiência do usuário e acessibilidade,
+                    com foco em leitura, navegação por teclado, contraste, formulários e conteúdo compreensível.
+                </p>
+                <a class="primary-button" href="#demo">Ver demonstração</a>
+            </div>
+            <aside aria-label="Resumo de benefícios" class="hero-highlight">
+                <p><strong>Inclusão digital</strong> melhora confiança, independência e usabilidade para todos.</p>
+                <ul>
+                    <li>Leitura mais fácil</li>
+                    <li>Interação sem mouse</li>
+                    <li>Suporte a leitores de tela</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section id="porque-importa">
+            <h2>Por que a acessibilidade importa</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <h3>Experiências inclusivas</h3>
+                    <p>Uma interface acessível garante que pessoas com diferentes habilidades possam completar tarefas com confiança.</p>
+                </article>
+                <article class="card">
+                    <h3>Mais alcance</h3>
+                    <p>Design acessível aumenta o público e reduz obstáculos para idosos, pessoas com deficiência visual, auditiva ou motora.</p>
+                </article>
+                <article class="card">
+                    <h3>Uso simples</h3>
+                    <p>Textos claros, controles legíveis e navegação previsível beneficiam todos os usuários, não apenas aqueles com limitações.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="principios">
+            <h2>Princípios de interfaces inclusivas</h2>
+            <div class="principles">
+                <article>
+                    <h3>1. Semântica e estrutura</h3>
+                    <p>Use marcação HTML adequada para que dispositivos assistivos e navegadores entendam o conteúdo.</p>
+                </article>
+                <article>
+                    <h3>2. Contraste e tipografia</h3>
+                    <p>Escolha cores com contraste suficiente e tamanhos de fonte legíveis para facilitar a leitura.</p>
+                </article>
+                <article>
+                    <h3>3. Navegação por teclado</h3>
+                    <p>Permita que usuários cubram a interface usando tab, shift+tab e atalhos claros.</p>
+                </article>
+                <article>
+                    <h3>4. Feedback claro</h3>
+                    <p>Mensagens e estados visuais devem ser fáceis de identificar e explicar o que aconteceu.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="tips">
+            <h2>Dicas práticas</h2>
+            <ul>
+                <li>Adicione rótulos visíveis para todos os campos de formulário.</li>
+                <li>Use aria-live para atualizações dinâmicas importantes.</li>
+                <li>Mantenha a navegação consistente e previsível.</li>
+                <li>Evite textos longos demais e prefira frases curtas.</li>
+                <li>Ofereça alternativas textuais para imagens e gráficos.</li>
+            </ul>
+        </section>
+
+        <section id="demo">
+            <h2>Demonstração de formulário acessível</h2>
+            <p>Teste a navegação com o teclado e o modo de alto contraste para ver como o conteúdo se adapta.</p>
+
+            <form id="contact-form" novalidate>
+                <div class="form-row">
+                    <label for="name">Nome completo</label>
+                    <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-help">
+                    <small id="name-help">Informe seu nome para receber recomendações.</small>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-help">
+                    <small id="email-help">Digite um email válido para contato.</small>
+                </div>
+
+                <div class="form-row">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="4" required aria-required="true" aria-describedby="message-help"></textarea>
+                    <small id="message-help">Escreva suas dúvidas ou sugestões de melhoria.</small>
+                </div>
+
+                <button type="submit" class="primary-button">Enviar mensagem</button>
+
+                <p id="form-status" role="status" aria-live="polite" class="form-status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Projeto educativo sobre UX e acessibilidade. Contato e sugestões são bem-vindos.</p>
+        <p><a href="README.md">Leia o README para saber mais</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
